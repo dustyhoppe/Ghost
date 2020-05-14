@@ -161,5 +161,9 @@ module.exports = {
 
     get authorsPublic() {
         return shared.pipeline(require('./authors-public'), localUtils, 'content');
+    },
+
+    get commentsPublic() {
+        return shared.pipeline(require('./comments-public'), localUtils, 'content');
     }
 };

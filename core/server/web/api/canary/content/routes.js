@@ -15,6 +15,11 @@ module.exports = function apiRoutes() {
     router.get('/posts/:id', mw.authenticatePublic, http(apiCanary.postsPublic.read));
     router.get('/posts/slug/:slug', mw.authenticatePublic, http(apiCanary.postsPublic.read));
 
+    // ## Comments
+    router.get('/comments', mw.authenticatePublic, http(apiCanary.commentsPublic.browse));
+    router.get('/comments/:id', mw.authenticatePublic, http(apiCanary.commentsPublic.read));
+    router.post('/comments', mw.authenticatePublic, http(apiCanary.commentsPublic.add));
+
     // ## Pages
     router.get('/pages', mw.authenticatePublic, http(apiCanary.pagesPublic.browse));
     router.get('/pages/:id', mw.authenticatePublic, http(apiCanary.pagesPublic.read));

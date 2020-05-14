@@ -418,5 +418,23 @@ module.exports = {
         created_by: {type: 'string', maxlength: 24, nullable: false},
         updated_at: {type: 'dateTime', nullable: true},
         updated_by: {type: 'string', maxlength: 24, nullable: true}
+    },
+    comments: {
+        id: {type: 'string', maxlength: 24, nullable: false, primary: true},
+        uuid: {type: 'string', maxlength: 36, nullable: false, validations: {isUUID: true}},
+        post_id: {type: 'string', maxlength: 24, nullable: false, references: 'posts.id'},
+        email: {type: 'string', maxlength: 191, nullable: false, validations: {isEmail: true}},
+        body: {type: 'text', maxlength: 65535, nullable: false},
+        status: {
+            type: 'string',
+            maxlength: 50,
+            nullable: false,
+            defaultTo: 'pending',
+            validations: {isIn: [['pending', 'published', 'hidden', 'spam']]}
+        },
+        created_at: {type: 'dateTime', nullable: false},
+        created_by: {type: 'string', maxlength: 24, nullable: true},
+        updated_at: {type: 'dateTime', nullable: true},
+        updated_by: {type: 'string', maxlength: 24, nullable: true}
     }
 };

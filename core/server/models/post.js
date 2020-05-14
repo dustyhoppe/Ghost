@@ -58,13 +58,14 @@ Post = ghostBookshelf.Model.extend({
         };
     },
 
-    relationships: ['tags', 'authors', 'mobiledoc_revisions', 'posts_meta'],
+    relationships: ['tags', 'authors', 'mobiledoc_revisions', 'posts_meta', 'comments'],
 
     // NOTE: look up object, not super nice, but was easy to implement
     relationshipBelongsTo: {
         tags: 'tags',
         authors: 'users',
-        posts_meta: 'posts_meta'
+        posts_meta: 'posts_meta',
+        comments: 'comments',
     },
 
     /**

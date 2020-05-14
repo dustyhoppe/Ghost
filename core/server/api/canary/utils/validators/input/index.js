@@ -49,5 +49,9 @@ module.exports = {
 
     get oembed() {
         return require('./oembed');
+    },
+
+    get comments() {
+        return require('./comments');
     }
 };
